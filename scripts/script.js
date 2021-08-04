@@ -3,9 +3,12 @@ const WIDTH = 16;
 const content = document.querySelector("#content");
 const clear = document.querySelector("#clear-button");
 
-function createEtchBlocks(){
-    for(let x=1; x <=LENGTH;x++){
-        for(let y=1; y<=WIDTH;y++){
+function createEtchBlocks(len, wid){
+
+    content.style = `grid-template: repeat(${len}, 1fr) repeat(${wid}, 1fr);`;
+
+    for(let x=1; x <=len;x++){
+        for(let y=1; y<=wid;y++){
             let div = document.createElement("div");
 
             div.classList.add("etch-cell");
@@ -21,13 +24,27 @@ function createEtchBlocks(){
     }
 }
 
+function setGridArea(){
+    const length = prompt("Type in a new side length");
+
+    if (isNaN(length) || length > 100){
+        alert("ERROR: Please enter a whole number 1-100");
+        setGridArea();
+    }
+    else{
+        createEtchBlocks(Math.floor(length), Math.floor(length));
+    }
+    
+}
+
 clear.addEventListener("click", (e)=>{
     let cells = document.querySelectorAll(".etch-cell");
     cells = Array.from(cells);
     cells.forEach(element =>{
-        element.style.backgroundColor= "white";
+        content.removeChild(element);
     });
+    setGridArea();
 });
 
 
-createEtchBlocks();
+createEtchBlocks(LENGTH,WIDTH);

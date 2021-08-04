@@ -13,6 +13,10 @@
     box-sizing: border-box;
 }
 
+:root{
+    background-image: linear-gradient(20deg, #dcc, #fcc);
+}
+
 html{
     height: 100vh;
     width: 100vw;
@@ -56,6 +60,7 @@ header{
 }
 
 #clear-button:hover{
+    background-color:#cfc;
     font-size: 1.6em;
     padding: 0.75em;
     transition: font-size 1s, 500ms;
@@ -68,6 +73,6 @@ header{
     height: 80.000002%;
     width: 80.000009%;
     display: grid;
-    grid-template: repeat(16, 1fr) / repeat(16, 1fr);
+    /* grid-template: repeat(16, 1fr) / repeat(16, 1fr); */
 }
 
