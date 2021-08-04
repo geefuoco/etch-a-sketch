@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100vh;
+    width: 100vw;
+}
+
+body{
+    height: inherit;
+    position: relative;
+}
+
+#content{
+    margin: 2vh 1vw;
+    display: grid;
+    grid-template: repeat(16, 1fr) / repeat(16, 1fr);
+}
