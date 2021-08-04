@@ -4,6 +4,7 @@ const content = document.querySelector("#content");
 const clear = document.querySelector("#clear-button");
 const shake = document.querySelector("#shake-button");
 const rainbow = document.querySelector("#rainbow-button");
+let animationId = null;
 let rainbowToggle = false;
 
 function paintCellsBlack(event){
@@ -47,9 +48,9 @@ function createEtchBlocks(len, wid){
 
 
 function setGridArea(){
-    const length = prompt("Type in a new side length");
-
-    if (isNaN(length) || length > 100){
+    const length = prompt("Type in a new side length (Max 100)");
+    console.log(length);
+    if (isNaN(length) || length > 100 || length == null || length == "" || length <=0){
         alert("ERROR: Please enter a whole number 1-100");
         setGridArea();
     }
@@ -75,6 +76,7 @@ clear.addEventListener("click", (e)=>{
 shake.addEventListener("click", ()=>{
     const cells = getAllCells();
     cells.forEach(element =>{
+
         element.style.backgroundColor = "white";
     });
 })
@@ -95,3 +97,5 @@ rainbow.addEventListener("click", (e)=>{
 
 
 createEtchBlocks(LENGTH,WIDTH);
+
+//TODO: Add a color picker, add the shake animation. Add the title, clean up a bit.
