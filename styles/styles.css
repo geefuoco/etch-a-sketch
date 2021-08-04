@@ -47,7 +47,8 @@ header{
     align-items: center;
 }
 
-#clear-button{
+#clear-button,
+#rainbow-button{
     padding: 1.2em;
     margin: 1.0em;
     max-width: 500px;
@@ -59,11 +60,34 @@ header{
     border-radius: 1em;
 }
 
-#clear-button:hover{
+#clear-button:hover,
+#rainbow-button:hover{
     background-color:#cfc;
     font-size: 1.6em;
     padding: 0.75em;
-    transition: font-size 1s, 500ms;
+    transition: font-size 500ms, 500ms;
+}
+
+#shake-button{
+    padding: 0.5em;
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Acme", monospace;
+    font-size: 1.6vh;
+    border-radius: 0.4em;
+    border-style: none;
+    box-shadow: 0 0 10em #111;
+    width: 15vw;
+    max-width: 20vw;
+}
+
+#shake-button:hover{
+    background-color:#cfc;
+    font-size: 2vh;
+    padding: 0.25em;
+    transition: font-size 500ms, 500ms;
 }
 
 #content{
@@ -73,6 +97,5 @@ header{
     height: 80.000002%;
     width: 80.000009%;
     display: grid;
-    /* grid-template: repeat(16, 1fr) / repeat(16, 1fr); */
 }
 

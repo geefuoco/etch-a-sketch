@@ -2,6 +2,28 @@ const LENGTH = 16;
 const WIDTH = 16;
 const content = document.querySelector("#content");
 const clear = document.querySelector("#clear-button");
+const shake = document.querySelector("#shake-button");
+const rainbow = document.querySelector("#rainbow-button");
+let rainbowToggle = false;
+
+function paintCellsBlack(event){
+    if (!rainbowToggle){
+        event.target.style.backgroundColor= "black";
+    }
+}
+
+function paintCellsColorful(event){
+
+    if (rainbowToggle){
+            
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+
+        event.target.style.backgroundColor = `rgb(${r},${g},${b})`;
+
+    }
+}
 
 function createEtchBlocks(len, wid){
 
@@ -15,14 +37,14 @@ function createEtchBlocks(len, wid){
             div.style.gridArea = `${x}/${y}/${x+1}/${y+1}`;
             div.style.backgroundColor = "white";
 
-            div.addEventListener("mouseenter", (e)=>{
-                e.target.style.backgroundColor = "black";
-            });
+            div.addEventListener("mouseenter", paintCellsBlack);
+            div.addEventListener("mouseenter", paintCellsColorful);
 
             content.appendChild(div);
         }
     }
 }
+
 
 function setGridArea(){
     const length = prompt("Type in a new side length");
@@ -37,13 +59,38 @@ function setGridArea(){
     
 }
 
-clear.addEventListener("click", (e)=>{
+function getAllCells(){
     let cells = document.querySelectorAll(".etch-cell");
-    cells = Array.from(cells);
+    return Array.from(cells); 
+}
+
+clear.addEventListener("click", (e)=>{
+    const cells = getAllCells();
     cells.forEach(element =>{
         content.removeChild(element);
     });
     setGridArea();
+});
+
+shake.addEventListener("click", ()=>{
+    const cells = getAllCells();
+    cells.forEach(element =>{
+        element.style.backgroundColor = "white";
+    });
+})
+
+rainbow.addEventListener("click", (e)=>{
+    if (!rainbowToggle){
+        rainbowToggle = true;
+        e.target.style.backgroundColor = "#ced";
+        console.log("on");
+    }
+    else{
+        rainbowToggle = false;
+        e.target.style.backgroundColor = "white";
+        console.log("off");
+    }
+    
 });
 
 
