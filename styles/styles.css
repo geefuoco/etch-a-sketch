@@ -53,6 +53,7 @@ header{
     padding: 1.2em;
     margin: 1.0em;
     max-width: 500px;
+    min-height: 90px;
     width: 200px;
     font-family: "Acme", monospace;
     font-size: 1.2rem;
@@ -64,9 +65,8 @@ header{
 
 #clear-button:hover,
 #rainbow-button:hover{
-    background-color:#cfc;
-    font-size: 1.6em;
-    padding: 0.75em;
+    background-color:#cfc!important;
+    font-size: 1.4rem;
     transition: font-size 500ms, 500ms;
 }
 
@@ -109,3 +109,5 @@ header{
 #color-wrapper{
     background-color: #000;
 }
+
+

@@ -103,10 +103,6 @@ colorPicker.addEventListener("change", (e)=>{
     
 })
 
-window.addEventListener("click",(e)=>{
-    console.log(color);
-})
-
 createEtchBlocks(LENGTH,WIDTH);
 
-//TODO: Add a color picker, add the shake animation. Add the title, clean up a bit.
+//TODO: add the shake animation. Add the title, clean up a bit.
