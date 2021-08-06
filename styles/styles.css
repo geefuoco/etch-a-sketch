@@ -48,16 +48,18 @@ header{
 }
 
 #clear-button,
-#rainbow-button{
+#rainbow-button,
+#color-picker-div{
     padding: 1.2em;
     margin: 1.0em;
     max-width: 500px;
     width: 200px;
     font-family: "Acme", monospace;
-    font-size: 1.4em;
+    font-size: 1.2rem;
     border-style: none;
     box-shadow: 0 0 4px #aaa;
     border-radius: 1em;
+    background-color: white;
 }
 
 #clear-button:hover,
@@ -95,4 +97,15 @@ header{
     height: 550px;
     width: 620px;
     display: grid;
+}
+
+#color-picker{
+    display: block;
+    width:100%;
+    opacity: 0;
+    border: none;
+}
+
+#color-wrapper{
+    background-color: #000;
 }

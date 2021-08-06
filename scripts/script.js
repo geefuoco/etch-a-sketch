@@ -4,12 +4,15 @@ const content = document.querySelector("#content");
 const clear = document.querySelector("#clear-button");
 const shake = document.querySelector("#shake-button");
 const rainbow = document.querySelector("#rainbow-button");
+const colorPicker = document.querySelector("#color-picker")
+const colorWrapper = document.querySelector("#color-wrapper")
+let color = colorPicker.getAttribute("value");
 let animationId = null;
 let rainbowToggle = false;
 
-function paintCellsBlack(event){
+function paintCells(event){
     if (!rainbowToggle){
-        event.target.style.backgroundColor= "black";
+        event.target.style.backgroundColor= `${color}`;
     }
 }
 
@@ -38,7 +41,7 @@ function createEtchBlocks(len, wid){
             div.style.gridArea = `${x}/${y}/${x+1}/${y+1}`;
             div.style.backgroundColor = "white";
 
-            div.addEventListener("mouseenter", paintCellsBlack);
+            div.addEventListener("mouseenter", paintCells);
             div.addEventListener("mouseenter", paintCellsColorful);
 
             content.appendChild(div);
@@ -85,16 +88,24 @@ rainbow.addEventListener("click", (e)=>{
     if (!rainbowToggle){
         rainbowToggle = true;
         e.target.style.backgroundColor = "#ced";
-        console.log("on");
     }
     else{
         rainbowToggle = false;
         e.target.style.backgroundColor = "white";
-        console.log("off");
     }
     
 });
 
+colorPicker.addEventListener("change", (e)=>{
+    color = e.target.value;
+    colorWrapper.style.backgroundColor = color;
+    console.log("color changed to ", color);
+    
+})
+
+window.addEventListener("click",(e)=>{
+    console.log(color);
+})
 
 createEtchBlocks(LENGTH,WIDTH);
 
